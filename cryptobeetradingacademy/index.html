@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CryptoBee Trading Academy</title>
+  <meta name="description" content="CryptoBee Trading Academy — Professional crypto trading education, mentorship, and live signals. Join our next cohort." />
+  <meta name="author" content="CryptoBee Trading Academy" />
+
+  <!-- Favicon (use one inside images/) -->
+  <link rel="icon" href="images/ cry_web.jpg" type="image/jpeg" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Optional: Font Awesome (replace yourkitid with your kit id or remove) -->
+  <!-- <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script> -->
+
+  <!-- Structured data (uses relative path) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "CryptoBee Trading Academy",
+    "url": "https://yourdomain.com",
+    "logo": "images/cry_web.jpg",
+    "description": "Professional crypto trading education, mentorship, and live signals."
+  }
+  </script>
+
+  <!-- Styles -->
+  <style>
+    :root {
+      --bg: #000;
+      --gold: #c79b37;
+      --gold-2: #e6c377;
+      --muted: #9b9b9b;
+      --card: #0f0f10;
+      --max-width: 1180px;
+      --radius: 14px;
+      --accent: #FFD700;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Poppins", system-ui, sans-serif;
+      background: var(--bg);
+      color: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0;
+      background: rgba(0,0,0,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      z-index: 100;
+      backdrop-filter: blur(6px);
+    }
+    .nav-wrap { display:flex; justify-content:space-between; align-items:center; padding:16px 0; }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand img { width:56px; height:56px; object-fit:cover; border-radius:10px; }
+    .brand h1 { font-size:18px; margin:0; }
+    .brand p { font-size:13px; color:var(--muted); margin:0; }
+    nav ul { list-style:none; display:flex; gap:12px; align-items:center; margin:0; padding:0; }
+    .btn-cta { background: linear-gradient(90deg,var(--gold),var(--gold-2)); color:#000; padding:10px 14px; border-radius:10px; font-weight:700; display:inline-block; }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1fr 420px; gap:36px; align-items:center; padding:56px 0; }
+    .hero h1 { font-size:40px; font-weight:800; margin-bottom:12px; }
+    .hero .gold { color:var(--gold); }
+    .hero p { color:var(--muted); margin-bottom:18px; max-width:640px; }
+    .cta-row { display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { padding:12px 18px; border-radius:10px; font-weight:700; cursor:pointer; display:inline-block; }
+    .btn-primary { background: linear-gradient(90deg,var(--gold),var(--gold-2)); color:#000; }
+    .btn-ghost { border:1px solid rgba(255,255,255,0.08); color:#fff; }
+
+    .hero-right img { width:100%; border-radius:12px; display:block; }
+
+    /* Sections */
+    section { padding: 60px 0; }
+
+    /* Courses/cards */
+    #courses { padding-top:28px; text-align:center; }
+    .cards-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap:22px;
+      margin-top:24px;
+    }
+    .card {
+      display:flex; flex-direction:column;
+      border:2px solid var(--accent);
+      border-radius:12px;
+      overflow:hidden;
+      background:#111;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(255,215,0,0.08); }
+    .card img { width:100%; height:200px; object-fit:cover; display:block; }
+    .card-body { padding:18px; display:flex; flex-direction:column; gap:10px; }
+    .card-body h3 { color:var(--accent); font-size:1.25rem; margin:0; }
+    .card-body p { color:#ddd; margin:0; flex-grow:1; }
+    .card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:10px; }
+
+    .btn-primary-small {
+      background: var(--accent);
+      color:#000; padding:8px 14px; border-radius:8px; font-weight:700; text-decoration:none;
+    }
+
+    /* Testimonials box (movement only inside the box) */
+    .testimonials-section { display:flex; justify-content:center; padding:56px 20px; }
+    .testimonial-box {
+      background:#0b1220; border:2px solid var(--accent); border-radius:16px; padding:26px 20px; max-width:720px; width:100%;
+      box-shadow: 0 12px 36px rgba(255,215,0,0.06);
+    }
+    .testimonials-header h2 { color:var(--accent); font-size:24px; margin-bottom:6px; }
+    .subtitle { color:var(--muted); margin-bottom:16px; font-size:14px; }
+    .testimonials-wrapper { position:relative; height:150px; overflow:hidden; }
+    .testimonials-list { list-style:none; padding:0; margin:0; transition: transform .5s ease; }
+    .testimonial { height:150px; display:flex; flex-direction:column; justify-content:center; gap:8px; padding-right:6px; }
+    .quote { font-size:15px; color:#e6e6e6; line-height:1.4; }
+    .meta-info strong { color:var(--accent); }
+    .stars { color:var(--accent); margin-top:4px; }
+
+    /* We'll use CSS animation but make timing shorter and smooth */
+    @keyframes slideUpLocal {
+      0%   { transform: translateY(0); }
+      20%  { transform: translateY(0); }
+      25%  { transform: translateY(-150px); }
+      45%  { transform: translateY(-150px); }
+      50%  { transform: translateY(-300px); }
+      70%  { transform: translateY(-300px); }
+      75%  { transform: translateY(-450px); }
+      95%  { transform: translateY(-450px); }
+      100% { transform: translateY(0); }
+    }
+    .testimonials-list { animation: slideUpLocal 18s infinite ease-in-out; }
+
+    .testimonial-cta { margin-top:18px; color:var(--muted); }
+    .btn-cta { display:inline-block; margin-top:10px; background:var(--accent); color:#000; padding:10px 16px; border-radius:8px; font-weight:700; }
+
+    /* Pricing cards */
+    .pricing-grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:24px; }
+    .plan-card {
+      background:#111; border-radius:14px; padding:32px 22px; width:320px; text-align:center; border:1px solid rgba(255,215,0,0.08);
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .plan-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(255,215,0,0.08); border-color:var(--accent); }
+    .plan-card h3 { color:var(--accent); margin-bottom:8px; }
+    .plan-card .price { font-size:28px; font-weight:700; color:#fff; margin:14px 0; }
+    .btn-plan { background: linear-gradient(90deg,var(--gold),var(--gold-2)); color:#000; padding:12px 20px; border-radius:10px; font-weight:700; text-decoration:none; display:inline-block; }
+
+    /* Footer */
+    footer { border-top:1px solid rgba(255,255,255,0.04); text-align:center; padding:36px 20px; color:var(--muted); margin-top:30px; }
+    .footer-container img { max-width:220px; height:auto; border-radius:10px; display:block; margin:0 auto 12px; }
+    .footer-container h2 { color: #fdd835; margin-bottom:8px; }
+    .footer-links a { color:#fdd835; margin:0 10px; text-decoration:none; font-weight:600; }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed; width:56px; height:56px; bottom:22px; right:22px; background-color:#25D366; color:#fff; border-radius:50%;
+      text-align:center; box-shadow: 0 6px 20px rgba(0,0,0,0.35); z-index:1100; display:flex; align-items:center; justify-content:center;
+    }
+    .whatsapp-float img { width:32px; height:32px; display:block; }
+
+    /* Back to top */
+    .back-to-top { position: fixed; bottom:92px; right:22px; background:var(--accent); color:#000; padding:10px 12px; border-radius:50%; font-weight:700; text-decoration:none; box-shadow:0 8px 26px rgba(255,215,0,0.12); z-index:1099; }
+
+    /* Responsive */
+    @media (max-width:980px) {
+      .hero { grid-template-columns: 1fr; padding:40px 0; gap:28px; }
+      .hero-right { order: -1; } /* mobile: show image first if you prefer */
+      .hero h1 { font-size:32px; }
+    }
+    @media (max-width:520px) {
+      .card img, .hero-right img { height:160px; object-position:center; }
+      .testimonial-box { padding:18px; }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- WhatsApp floating -->
+  <a class="whatsapp-float" href="https://wa.me/2347035010062?text=Hello%2C%20I%27m%20interested%20in%20joining%20CryptoBee%20Trading%20Academy" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <!-- Using hosted WhatsApp svg -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
+  <!-- Back to top -->
+  <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <div class="brand">
+        <img src="c:\Users\l\Pictures\yyy.jpg" alt="CryptoBee logo" />
+        <div>
+          <h1>CryptoBee</h1>
+          <p>Trading Academy</p>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#home" class="btn-cta">Home</a></li>
+          <li><a href="#courses" class="btn-cta">Courses</a></li>
+          <li><a href="#testimonials" class="btn-cta">Testimonials</a></li>
+          <li><a href="#pricing" class="btn-cta">Pricing</a></li>
+          <li><a href="https://wa.me/2347035010062" class="btn-cta">Join Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero container" aria-label="Hero">
+    <div class="hero-left">
+      <h1>Crypto trading made simple. <span class="gold">Trade confidently.</span></h1>
+      <p>Join CryptoBee Trading Academy — live classes, mentorship, and daily signals built to help you trade with discipline and protect your capital.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/2347035010062" target="_blank" rel="noopener">Join on WhatsApp</a>
+        <a class="btn btn-primary" href="https://t.me/Cryptobeesignal" target="_blank" rel="noopener">Join Telegram</a>
+        <a class="btn btn-ghost" href="#courses">View Courses</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img src="c:\Users\l\Documents\cryptobeetradingacademy\images\illu 1.jpg" alt="Crypto trading illustration" />
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses" class="container" aria-label="Courses">
+    <h2 style="font-size:2.2rem; color:var(--accent);">Our Courses</h2>
+    <p style="color:#ccc; margin-top:6px;">From beginner to advanced — courses designed for real trading results.</p>
+
+    <div class="cards-grid" role="list">
+      <!-- BEGINNER -->
+      <article class="card" role="listitem">
+        <img src="c:\Users\l\Documents\cryptobeetradingacademy\images\men 2.jpg" alt="Beginner course">
+        <div class="card-body">
+          <h3>Beginner: Foundations</h3>
+          <p>Learn chart basics, market psychology, and execute your first trades.</p>
+          <div class="card-footer">
+            <a class="btn-primary-small" href="https://wa.me/2347035010062" target="_blank" rel="noopener">Learn More</a>
+            <span style="color:var(--accent); font-weight:700;">₦10,000 / Month</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ADVANCED -->
+      <article class="card" role="listitem">
+        <img src="c:\Users\l\Documents\cryptobeetradingacademy\images\men 1.jpg" alt="Advanced course">
+        <div class="card-body">
+          <h3>Advanced: Strategy & Risk</h3>
+          <p>Master technical setups, risk management, and advanced trading strategies.</p>
+          <div class="card-footer">
+            <a class="btn-primary-small" href="https://wa.me/2347035010062" target="_blank" rel="noopener">Learn More</a>
+            <span style="color:var(--accent); font-weight:700;">₦25,000 / Month</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- VIP -->
+      <article class="card" role="listitem">
+        <img src="c:\Users\l\Documents\cryptobeetradingacademy\images\mentorship.jpg" alt="VIP signals and mentorship">
+        <div class="card-body">
+          <h3>Exclusive VIP Signals</h3>
+          <p>Get daily signals, live mentorship, and 1-on-1 guidance.</p>
+          <div class="card-footer">
+            <a class="btn-primary-small" href="https://wa.me/2347035010062" target="_blank" rel="noopener">Join Now</a>
+            <span style="color:var(--accent); font-weight:700;">₦50,000 / Monthly</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- WHY CRYPTOBEE (keeps content but cleaned) -->
+  <section aria-label="Why CryptoBee" style="padding:40px 0;">
+    <div class="container" style="max-width:1000px;">
+      <h2 style="color:var(--accent); margin-bottom:8px;">Why CryptoBee?</h2>
+      <p style="color:#ddd; margin-bottom:12px;">We focus on <strong>practical strategies</strong>, <strong>capital preservation</strong>, and <strong>consistent trade execution</strong> — not hype.</p>
+
+      <ul style="color:#ccc; margin-bottom:18px; line-height:1.8;">
+        <li>Structured curriculum from basics to advanced strategies.</li>
+        <li>Live sessions, trade debriefs, and community accountability.</li>
+        <li>Risk-first approach: protect capital, grow responsibly.</li>
+      </ul>
+
+      <div style="display:flex; gap:18px; flex-wrap:wrap;">
+        <div style="width:150px; background:#0b0b0b; border:3px solid var(--accent); border-radius:12px; padding:14px; text-align:center;">
+          <div style="color:var(--accent); font-weight:700; font-size:22px;">30+</div>
+          <div style="color:#fff; font-size:13px; margin-top:6px;">Students</div>
+        </div>
+        <div style="width:150px; background:#0b0b0b; border:3px solid var(--accent); border-radius:12px; padding:14px; text-align:center;">
+          <div style="color:var(--accent); font-weight:700; font-size:22px;">80%</div>
+          <div style="color:#fff; font-size:13px; margin-top:6px;">Positive Reviews</div>
+        </div>
+        <div style="width:150px; background:#0b0b0b; border:3px solid var(--accent); border-radius:12px; padding:14px; text-align:center;">
+          <div style="color:var(--accent); font-weight:700; font-size:22px;">20+</div>
+          <div style="color:#fff; font-size:13px; margin-top:6px;">Live Sessions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials-section" aria-label="Testimonials">
+    <div class="testimonial-box">
+      <header class="testimonials-header">
+        <h2>What Our Students Say</h2>
+        <p class="subtitle">Real results. Real traders. Real stories from the CryptoBee community.</p>
+      </header>
+
+      <div class="testimonials-wrapper" aria-hidden="false">
+        <ul class="testimonials-list" id="testimonialsList" role="list">
+          <li class="testimonial" role="listitem">
+            <div class="quote">“Before joining CryptoBee Trading Academy, I had no idea how to analyze the market. Now I understand entries, risk management, and trading psychology. The mentorship changed my entire trading mindset!”</div>
+            <div class="meta-info"><strong>Musa S.</strong> <span class="role" style="color:#9b9b9b;"> — Beginner Trader</span><div class="stars">★★★★★</div></div>
+          </li>
+          <li class="testimonial" role="listitem">
+            <div class="quote">“I used to blow accounts back-to-back. After joining CryptoBee, I finally learned how to manage risk and stay patient. Now I’m seeing consistent profits every week!”</div>
+            <div class="meta-info"><strong>Alamin K.</strong> <span class="role" style="color:#9b9b9b;"> — Crypto Student</span><div class="stars">★★★★★</div></div>
+          </li>
+          <li class="testimonial" role="listitem">
+            <div class="quote">“Joining CryptoBee Trading Academy was the best decision I made this year. The lessons are clear, real, and practical. It’s not just trading — it’s mindset training too!”</div>
+            <div class="meta-info"><strong>Ibrahim T.</strong> <span class="role" style="color:#9b9b9b;"> — Student Trader</span><div class="stars">★★★★★</div></div>
+          </li>
+          <li class="testimonial" role="listitem">
+            <div class="quote">“CryptoBee’s signals are top-notch! Even when the market gets rough, the recovery strategy always brings us back stronger. I’ve learned so much just by following the setups.”</div>
+            <div class="meta-info"><strong>Abdulrahman A.</strong> <span class="role" style="color:#9b9b9b;"> — Channel Member</span><div class="stars">★★★★★</div></div>
+          </li>
+          <li class="testimonial" role="listitem">
+            <div class="quote">“The advanced mentorship taught me how to plan my own trades and stop depending on signals. Now I can analyze, enter, and exit confidently — that’s real growth.”</div>
+            <div class="meta-info"><strong>David L.</strong> <span class="role" style="color:#9b9b9b;"> — Advanced Student</span><div class="stars">★★★★★</div></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="testimonial-cta">
+        <p>Want to be featured here? Join our next batch and share your success.</p>
+        <a href="https://wa.me/2347035010062?text=Hello%20CryptoBee!%20I%20want%20to%20register%20for%20the%20course." class="btn-cta" target="_blank" rel="noopener">Register Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="container" aria-label="Pricing">
+    <h2 style="font-size:40px; color:var(--accent); margin-bottom:10px;">Pricing & Plans</h2>
+    <p style="color:#aaa; font-size:18px; margin-bottom:30px;">From beginner to advanced — courses designed for real trading results.</p>
+
+    <div class="pricing-grid" role="list">
+      <div class="plan-card" role="listitem">
+        <h3>Beginner: Foundations</h3>
+        <p class="price">₦10,000 <span style="color:#aaa; font-size:14px; display:block; margin-top:6px;">/ Full Preview</span></p>
+        <ul style="list-style:none; padding:0; margin:18px 0 22px; color:#ccc;">
+          <li>Chart Basics & Market Psychology</li>
+          <li>Intro to Risk Management</li>
+          <li>First Trade Execution</li>
+        </ul>
+        <a class="btn-plan" href="https://wa.me/2347035010062?text=Hello%20CryptoBee!%20I'm%20interested%20in%20the%20Beginner%20course." target="_blank" rel="noopener">Register Now</a>
+      </div>
+
+      <div class="plan-card featured" role="listitem" style="border:2px solid var(--accent); box-shadow:0 0 40px rgba(255,215,0,0.12);">
+        <h3>Advanced: Strategy & Risk</h3>
+        <p class="price">₦25,000 <span style="color:#aaa; font-size:14px; display:block; margin-top:6px;">/ Full Course</span></p>
+        <ul style="list-style:none; padding:0; margin:18px 0 22px; color:#ccc;">
+          <li>Advanced Technical Strategies</li>
+          <li>Smart Entry/Exit Systems</li>
+          <li>Professional Risk Management</li>
+        </ul>
+        <a class="btn-plan" href="https://wa.me/2347035010062?text=Hello%20CryptoBee!%20I'm%20interested%20in%20the%20Advanced%20course." target="_blank" rel="noopener">Register Now</a>
+      </div>
+
+      <div class="plan-card" role="listitem">
+        <h3>VIP Signal</h3>
+        <p class="price">₦50,000 <span style="color:#aaa; font-size:14px; display:block; margin-top:6px;">/ Monthly Plan</span></p>
+        <ul style="list-style:none; padding:0; margin:18px 0 22px; color:#ccc;">
+          <li>Daily Crypto Signals</li>
+          <li>Direct Access to Coach</li>
+          <li>Live Trading Sessions</li>
+        </ul>
+        <a class="btn-plan" href="https://wa.me/2347035010062?text=Hello%20CryptoBee!%20I'm%20interested%20in%20the%20Signals%20and%20Mentorship%20plan." target="_blank" rel="noopener">Register Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container" style="max-width:1000px; margin:0 auto;">
+      <img src="c:\Users\l\Pictures\yyy.jpg" alt="CryptoBee footer image" />
+      <h2>CryptoBee Trading Academy</h2>
+      <p>Learn. Trade. Earn — Empowering the next generation of profitable traders.</p>
+
+      <div class="footer-links" style="margin:12px 0;">
+        <a href="https://wa.me/2347035010062" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://t.me/Cryptobeesignal" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://www.instagram.com/cryptobee_trading_academy" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <p class="contact">📍 Nigeria | 📞 +234 7035010062 | ✉ info@cryptobeetradingacademy.com</p>
+      <hr style="width:80%; border:none; border-top:1px solid #333; margin:18px auto;" />
+      <p class="copy" style="opacity:0.75;">© 2025 CryptoBee Trading Academy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Small JS: stop testimonial animation on hover for readability -->
+  <script>
+    const list = document.querySelector('.testimonials-list');
+    const wrapper = document.querySelector('.testimonials-wrapper');
+    if (list && wrapper) {
+      wrapper.addEventListener('mouseenter', () => { list.style.animationPlayState = 'paused'; });
+      wrapper.addEventListener('mouseleave', () => { list.style.animationPlayState = 'running'; });
+    }
+  </script>
+</body>
+</html>
